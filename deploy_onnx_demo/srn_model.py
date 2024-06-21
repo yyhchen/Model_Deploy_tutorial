@@ -56,7 +56,7 @@ for url, name in zip(urls, names):
 
 
 def init_torch_model():
-    torch_model = SuperResolutionNet(upscale_factor=3)
+    torch_model = SuperResolutionNet(upscale_factor=5)
 
     state_dict = torch.load('srcnn.pth')['state_dict']
 
