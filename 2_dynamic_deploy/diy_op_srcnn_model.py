@@ -90,3 +90,12 @@ torch_output = np.transpose(torch_output, [1, 2, 0]).astype(np.uint8)
 
 # Show image
 cv2.imwrite("face_torch_3.png", torch_output)
+
+x = torch.randn(1, 3, 256, 256)
+
+with torch.no_grad():
+    torch.onnx.export(model, (x, factor),
+                      "srcnn3.onnx",
+                      opset_version=11,
+                      input_names=['input', 'factor'],
+                      output_names=['output'])
