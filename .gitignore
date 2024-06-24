@@ -1,4 +1,9 @@
 **/.idea
 **/__pycache__
 test.ipynb
+<<<<<<< HEAD
 .ipynb_checkpoints/
+=======
+srcnn.pth
+face.png
+>>>>>>> 1275a3f1770c74cc7a11a3fe98e722e1b75c1082
