@@ -30,3 +30,29 @@
 
 
 ## Pytorch 对 ONNX 的算子支持
+
+使用 `torch.onnx.export` 可能会出现算子不兼容等问题，可能有一下几种情况：
+
+- 该算子可以一对一地翻译成一个 ONNX 算子。
+
+- 该算子在 ONNX 中没有直接对应的算子，会翻译成一至多个 ONNX 算子。
+
+- 该算子没有定义翻译成 ONNX 的规则，报错。
+
+
+<br>
+
+
+### onnx 算子文档
+[onnx 官方算子文档](https://github.com/onnx/onnx/blob/main/docs/Operators.md)
+
+表格的第一列是算子名，第二列是该算子发生变动的算子集版本号，也就是我们之前在 `torch.onnx.export` 中提到的 `opset_version` 表示的算子集版本号。
+
+<br>
+
+
+### pytorch对onnx算子映射
+[pytorch 算子映射](https://github.com/pytorch/pytorch/tree/main/torch/onnx)
+
+`symbloic_opset{n}.py`（符号表文件）即表示 PyTorch 在支持第 n 版 ONNX 算子集时新加入的内容。
+
