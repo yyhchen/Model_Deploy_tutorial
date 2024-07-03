@@ -59,3 +59,12 @@ ATen 本质上是一个张量库，PyTorch 中几乎所有其他 Python 和 C++ 
 
 <br>
 <br>
+
+
+## register_torchscripts_op.py
+在pytorch原生算子无法实现一些运算时候，就需要自己定义一个 pytorch 算子，官方推荐是用 `TorchScript` 来[实现](https://pytorch.org/tutorials/advanced/torch_script_custom_ops.html)。
+
+<br>
+
+在本次案例中，跳过了自定义 `TorchScript` 算子的步骤（很复杂，写完还要编译什么的），直接在定义好的 `TorchScript` 算子上添加了符号函数，并注册到 onnx 对应的算子集中。
+
