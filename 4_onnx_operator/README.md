@@ -1,5 +1,7 @@
 # 在 PYTORCH 中支持更多 ONNX 算子
 
+**本章节是在 MAC 上进行的，所以一些编译的内容在其他平台可能无法使用，需要删掉重新编译！！**
+
 [原教程](https://mmdeploy.readthedocs.io/zh-cn/latest/tutorial/04_onnx_custom_op.html#id2)
 
 在开始之前，我们有必要解释一些相关的概念：
