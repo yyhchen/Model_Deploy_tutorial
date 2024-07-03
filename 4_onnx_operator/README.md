@@ -68,3 +68,39 @@ ATen 本质上是一个张量库，PyTorch 中几乎所有其他 Python 和 C++ 
 
 在本次案例中，跳过了自定义 `TorchScript` 算子的步骤（很复杂，写完还要编译什么的），直接在定义好的 `TorchScript` 算子上添加了符号函数，并注册到 onnx 对应的算子集中。
 
+
+
+## setup.py + my_add.cpp
+
+自定义 C++ 算子
+
+需要注意：
+- [libtorch](https://pytorch.org/get-started/locally/) 按自己的系统环境安装，需要将自定义 C++ 算子编译为动态库，并拷贝到目标机器上
+- 需要将动态库路径添加到环境变量中
+比如下面配置文件:
+```json
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/libtorch/include/torch/csrc/api/include",
+                "/Users/solochan/anaconda3/envs/deploy_onnx/include/python3.9"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/opt/homebrew/opt/llvm/bin/clang++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
+        }
+    ],
+    "version": 4
+}
+```
+- 配置的 python 环境路径一定要装有 torch ！！
+
+- 运行一定要用 `python setup.py develop`
