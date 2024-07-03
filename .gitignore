@@ -11,3 +11,5 @@ face.png
 .vscode
 libtorch
 .DS_Store
+test.cpp
+CMakeLists.txt
