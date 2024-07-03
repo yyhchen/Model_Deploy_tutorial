@@ -7,3 +7,7 @@ test.ipynb
 srcnn.pth
 face.png
 >>>>>>> 1275a3f1770c74cc7a11a3fe98e722e1b75c1082
+
+.vscode
+libtorch
+.DS_Store
