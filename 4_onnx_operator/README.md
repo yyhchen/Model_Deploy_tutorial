@@ -69,6 +69,9 @@ ATen 本质上是一个张量库，PyTorch 中几乎所有其他 Python 和 C++ 
 在本次案例中，跳过了自定义 `TorchScript` 算子的步骤（很复杂，写完还要编译什么的），直接在定义好的 `TorchScript` 算子上添加了符号函数，并注册到 onnx 对应的算子集中。
 
 
+<br>
+<br>
+
 
 ## setup.py + my_add.cpp
 
