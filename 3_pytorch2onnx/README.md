@@ -2,6 +2,13 @@
 
 [原教程](https://mmdeploy.readthedocs.io/zh-cn/latest/tutorial/03_pytorch2onnx.html)
 
+
+.py 使用顺序:
+1. trace_script.py
+2. param_dynamic_axes.py
+3. test_dynamic_axes.py
+
+
 ---
 
 <br>
