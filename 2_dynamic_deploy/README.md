@@ -2,6 +2,11 @@
 
 [原教程](https://mmdeploy.readthedocs.io/zh-cn/latest/tutorial/02_challenges.html)
 
+.py 使用顺序：
+1. srcnn_model.py
+2. diy_op_srcnn_model.py
+
+
 后面还有一些解释自定义算子，具体的官方文档没有提到（也可能是我没找到）
 
 抛出问题：
