@@ -2,6 +2,13 @@
 
 [原教程](https://mmdeploy.readthedocs.io/zh-cn/latest/tutorial/05_onnx_model_editing.html)
 
+.py/.ipynb 顺序
+
+1. **onnx_construct.py**: 构建一个简单的 onnx 模型
+2. **test_model.py**:  测试之前构建的 onnx 模型 是否正确
+3. **onnx_modified.py**:  简单修改 onnx 模型中某个节点的功能
+4. **define_model_debug.ipynb**: 从模型本身的结构进行修改
+
 ---
 
 围绕 ONNX 这一套神经网络定义标准本身，探究 ONNX 模型的构造、读取、子模型提取、调试。
