@@ -4,6 +4,17 @@
 
 [原教程](https://mmdeploy.readthedocs.io/zh-cn/latest/tutorial/04_onnx_custom_op.html#id2)
 
+.py/.ipynb 文件使用顺序:
+1. register_op.py
+2. register_torchscript_op.py
+3. setup.py + my_add.cpp
+4. register_cpp_op.py
+
+<br>
+<br>
+
+
+
 在开始之前，我们有必要解释一些相关的概念：
 
 ## Aten 是什么？
