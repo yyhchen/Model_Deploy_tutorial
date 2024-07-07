@@ -16,3 +16,4 @@ CMakeLists.txt
 4_onnx_operator/build/*
 4_onnx_operator/my_add/egg-info/*
 4_onnx_operator/my_lib.cpython-39-darwin.so
+.vscode
