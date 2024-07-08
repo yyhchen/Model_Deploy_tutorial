@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\CodeLibrary\Model_Deploy_tutorial\6_TensorRT_Construct_Inference\Inference_model\cpp_inference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\CodeLibrary\Model_Deploy_tutorial\6_TensorRT_Construct_Inference\Inference_model\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8FD14BE2-DAF2-3C5C-AEB2-443CD802C113}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
