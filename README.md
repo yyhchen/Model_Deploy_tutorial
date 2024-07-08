@@ -14,22 +14,22 @@ The tutorial of deploy model, the example was used onnx
 
 
 ## 3️⃣ 3_pytorch2onnx
-- [implement]()
+- [implement](https://github.com/yyhchen/Model_Deploy_tutorial/tree/main/3_pytorch2onnx)（Done）
 - more detail in model exchange that pytorch 2 onnx
 
 
 ## 4️⃣ 4_onnx_operator
-- [implement]()
+- [implement](https://github.com/yyhchen/Model_Deploy_tutorial/tree/main/4_onnx_operator)（Done）
 - more onnx operator implement
 
 
 ## 5️⃣ 5_onnx_model_modified_debug
-- [implement]()
+- [implement](https://github.com/yyhchen/Model_Deploy_tutorial/tree/main/5_onnx_model_modified_debug)（Done）
 - onnx model modified and debug
 
 
 ## 6️⃣ 6_TensorRT_Construct_Inference
-- [implement]()
+- [implement](https://github.com/yyhchen/Model_Deploy_tutorial/tree/main/6_TensorRT_Construct_Inference)（Done）
 - use TensorRT construct the model and inference
 
 
