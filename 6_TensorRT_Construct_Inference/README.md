@@ -1,4 +1,4 @@
-# TensorRT 模型构建与推理
+# TensorRT 模型构建与推理 (踩坑说明与教程)
 
 [原教程](https://mmdeploy.readthedocs.io/zh-cn/latest/tutorial/06_introduction_to_tensorrt.html)
 
@@ -143,3 +143,23 @@ python API转换
 C++ API 转换
 - 也是跟直接构建一些，需要改一些东西(CMakeLists.txt 也需要改!)
 
+
+
+<br>
+<br>
+
+
+
+### 2.3 模型推理
+
+python API 推理
+
+[TensorRT Python API 官方文档](https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/infer/Core/Engine.html)
+
+<br>
+<br>
+
+
+C++ API 推理
+
+[TensorRT C++ API 官方文档](https://docs.nvidia.com/deeplearning/tensorrt/api/c_api/namespaces.html)
