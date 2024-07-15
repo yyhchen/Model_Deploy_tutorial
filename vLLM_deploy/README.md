@@ -47,7 +47,7 @@ snapshot_download('qwen/Qwen-1_8B-Chat', cache_dir='自己取一个位置')
 <br>
 
 
-## 官方推荐简单部署
+## 官方推荐简单部署 (offline)
 ```python
 from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
 
 
-## 参考 Qwen 官方的vLLM部署
+## 参考 Qwen 官方的vLLM部署 (offline)
 
 先准备一个 `vllm_wrapper.py` 文件，定一个文件 `prompt_utils.py` 自定义 `Qwen` 的 Prompt 格式, 再运行`vllm_deploy.py` 进行连续对话
 
@@ -134,3 +134,105 @@ if __name__ == "__main__":
 - `remove_stop_words` 函数负责移除生成文本末尾的停用词
 
 
+
+<br>
+<br>
+<br>
+
+
+
+## API方式部署 （Online / Offline）
+
+- [Fastchat](https://github.com/lm-sys/FastChat#other-models)
+- [vLLM官方实现 (FastAPI + OpenAI规范)](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html)
+
+
+<br>
+<br>
+
+
+### Fastchat （Online）
+
+对 `transformers` 库有版本要求，源码跟模型配置和加载相关用的是 `transformers`. 关于 Fastchat 离线推理这里不涉及，请自己查看官方文档。
+
+若部署的是自己的模型，请参考 [model_support 部分](https://github.com/lm-sys/FastChat/blob/main/docs/model_support.md#supported-models)
+
+<br>
+
+**安装：**
+```bash
+pip3 install "fschat[model_worker,webui]"
+```
+
+<br>
+
+**启动步骤：**
+
+先启动一个controller
+
+```bash
+python3 -m fastchat.serve.controller
+```
+
+
+然后启动model worker读取模型
+
+```bash
+python3 -m fastchat.serve.model_worker --model-path lmsys/vicuna-7b-v1.5
+```
+
+
+(可选择步骤) 发送一个请求测试API,会得到一个输出
+```bash
+python3 -m fastchat.serve.test_message --model-name vicuna-7b-v1.5
+```
+
+启动 Gradio 界面
+```bash
+python3 -m fastchat.serve.gradio_web_server
+```
+
+
+<br>
+<br>
+
+
+## vLLM官方实现 (FastAPI + OpenAI规范) （Online）
+
+使用 类OpenAI 的API，注意要加上 `api-key`
+
+<br>
+
+**启动步骤：**
+
+首先启动API服务
+
+```bash
+python -m vllm.entrypoints.openai.api_server --model lmsys/vicuna-7b-v1.5 --dtype auto --api-key token-abc123
+```
+
+<br>
+
+(可选择步骤)发送请求测试API
+
+```bash
+curl http://localhost:8000/v1/models
+```
+
+<br>
+
+启动 Gradio 部分得根据情况修改
+
+[官方demo参考](https://docs.vllm.ai/en/latest/getting_started/examples/gradio_webserver.html)
+
+
+
+<br>
+<br>
+<br>
+
+
+## 部署过程中可能会遇到的问题
+- 不同模型可能会遇到不同的 `prompt` 模板，详情需要参考具体模型（说明并不是一次部署并不是可以完全适用）
+
+- ...
