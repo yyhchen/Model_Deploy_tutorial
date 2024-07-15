@@ -36,3 +36,8 @@ The tutorial of deploy model, the example was used onnx
 ## 7️⃣ define_TensorRT
 - [implement]()
 - how to define TensorRT plug-in
+
+
+## vLLM inference deploy
+- [implement](https://github.com/yyhchen/Model_Deploy_tutorial/tree/main/vLLM_deploy)（continue ...）
+- how to deploy model use vLLM
