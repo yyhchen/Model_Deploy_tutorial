@@ -208,7 +208,7 @@ python3 -m fastchat.serve.gradio_web_server
 首先启动API服务
 
 ```bash
-python -m vllm.entrypoints.openai.api_server --model lmsys/vicuna-7b-v1.5 --dtype auto --api-key token-abc123
+python -m vllm.entrypoints.openai.api_server --model Qwen/Qwen-7B-Chat --dtype auto --api-key token-abc123
 ```
 
 <br>
@@ -217,6 +217,8 @@ python -m vllm.entrypoints.openai.api_server --model lmsys/vicuna-7b-v1.5 --dtyp
 
 ```bash
 curl http://localhost:8000/v1/models
+
+curl http://localhost:8000/v1/completions -H "Authorization: Bearer token-abc123" -H "Content-Type: application/json" -d '{"model":"qwen/Qwen-7B-Chat","prompt": "你好！","max_tokens": 7,"temperature": 0}'
 ```
 
 <br>
