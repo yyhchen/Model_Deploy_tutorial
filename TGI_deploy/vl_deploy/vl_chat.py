@@ -3,9 +3,15 @@ from huggingface_hub import InferenceClient
 import base64
 import io
 import spaces
+import re
 
-# 初始化InferenceClient
-client = InferenceClient(base_url="http://0.0.0.0:8080")
+client = InferenceClient(base_url="http://0.0.0.0:8081")
+
+# 去除一些特殊token，如停止词等
+special_chars = ['<end_of_utterance>']
+def remove_special_characters(s, special_chars):
+    pattern = '|'.join(re.escape(char) for char in special_chars)
+    return re.sub(pattern, '', s)
 
 @spaces.GPU(duration=180)
 def model_inference(
@@ -18,7 +24,7 @@ def model_inference(
     if text == "" and image:
         gr.Error("Please input a text query along the image(s).")
 
-    # 将图像编码为base64
+    # 将图像编码为base64(关键)
     buffered = io.BytesIO()
     image.save(buffered, format="PNG")
     image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
@@ -51,7 +57,7 @@ def model_inference(
         # 处理流式响应
         generated_text = ""
         for token in response:
-            generated_text += token
+            generated_text += remove_special_characters(token, special_chars)
             print(token, end="", flush=True)
         
         return generated_text
