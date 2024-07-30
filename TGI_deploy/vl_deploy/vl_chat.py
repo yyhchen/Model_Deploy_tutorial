@@ -5,6 +5,18 @@ import io
 import spaces
 import re
 
+"""
+    前置条件：需要把这些东西下回来
+    https://huggingface.co/spaces/HuggingFaceM4/idefics-8b/tree/main
+
+    启动API:
+    text-generation-launcher --model-id HuggingFaceM4/idefics-8b --port 8080
+
+    启动client:
+    python vl_chat.py
+
+"""
+
 client = InferenceClient(base_url="http://0.0.0.0:8081")
 
 # 去除一些特殊token，如停止词等
